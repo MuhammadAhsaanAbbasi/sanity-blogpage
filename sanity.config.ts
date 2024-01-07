@@ -26,9 +26,4 @@ export default defineConfig({
     visionTool({defaultApiVersion: apiVersion}),
   ],
   theme: myTheme,
-  studio:{
-    components:{
-      logo:StudioLogo,
-    }
-  },
 })
