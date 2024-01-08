@@ -1,5 +1,5 @@
-import HighlightIcon from '../../components/highlight'
 import { RxComponent2 } from "react-icons/rx";
+import HighlightIcon from "../../components/Highlight/highlight";
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
