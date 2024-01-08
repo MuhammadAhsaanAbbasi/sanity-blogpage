@@ -1,5 +1,5 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import blockContent from './blockContent'
+import { blockContent } from './blockContent'
 import { author } from './author'
 import post from './post'
 import { category } from './category'

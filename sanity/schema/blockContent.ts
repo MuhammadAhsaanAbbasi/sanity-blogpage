@@ -1,4 +1,5 @@
-import { defineType } from 'sanity'
+import HighlightIcon from '../../components/highlight'
+import { RxComponent2 } from "react-icons/rx";
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -9,31 +10,41 @@ import { defineType } from 'sanity'
  *    type: 'blockContent'
  *  }
  */
-export default defineType({
-    title: 'Block Content',
-    name: 'blockContent',
+export const blockContent = {
+    name: 'content',
     type: 'array',
+    title: 'Content',
     of: [
         {
-            type: 'block'
+            type: 'block',
+            styles: [
+                { title: 'Normal', value: 'normal' },
+                { title: 'H1', value: 'h1' },
+                { title: 'H2', value: 'h2' },
+                { title: 'H3', value: 'h3' },
+                { title: 'H4', value: 'h4' },
+                { title: 'H5', value: 'h5' },
+                { title: 'H6', value: 'h6' },
+                { title: 'Quote', value: 'blockquote' },
+            ],
+            marks: {
+                decorators: [
+                    { title: 'Strong', value: 'strong' },
+                    { title: 'Emphasis', value: 'em' },
+                    { title: 'Code', value: 'code' },
+                    { "title": "Underline", "value": "underline" },
+                    { "title": "Strike", "value": "strike-through" },
+                    {
+                        title: 'Highlight',
+                        value: 'highlight',
+                        icon: RxComponent2 ,
+                        component: HighlightIcon
+                    }
+                ]
+            },
         },
         {
-            type: 'image',
-            fields: [
-                {
-                    type: 'text',
-                    name: 'alt',
-                    title: 'Alternative text',
-                    description: `Some of your visitors cannot see images, 
-            be they blind, color-blind, low-sighted; 
-            alternative text is of great help for those 
-            people that can rely on it to have a good idea of 
-            what\'s on your page.`,
-                    options: {
-                        isHighlighted: true
-                    }
-                }
-            ]
-        }
+            type: 'image'
+        },
     ]
-})
+}

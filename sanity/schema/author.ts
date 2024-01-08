@@ -1,6 +1,7 @@
 // sanity/author.ts
 
 import { defineField, defineType } from "sanity";
+import { blockContent } from "./blockContent";
 
 export const author = defineType(
     {
@@ -32,6 +33,11 @@ export const author = defineType(
                 name: 'image',
                 type: 'image',
                 title: 'Main Image'
+            }),
+            defineField({
+                name: 'body',
+                title: 'Body',
+                type: blockContent.name,
             }),
         ],
         preview: {
