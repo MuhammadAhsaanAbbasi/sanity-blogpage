@@ -64,6 +64,12 @@ export default defineType({
             title: 'Body',
             type: blockContent.name,
         }),
+        defineField(
+        {
+            name: 'description',
+            title: 'Description',
+            type:"string",
+        }),
     ],
 
     preview: {

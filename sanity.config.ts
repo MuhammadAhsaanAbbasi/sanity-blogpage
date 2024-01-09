@@ -5,6 +5,7 @@
 import {visionTool} from '@sanity/vision'
 import {StudioNavbar, defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
+import { presentationTool } from 'sanity/presentation'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'

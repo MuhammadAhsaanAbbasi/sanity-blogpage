@@ -1,5 +1,5 @@
 const HighlightIcon = (props:any) => (
-    <span style={{fontWeight: 'bold', color:'green', fontSize:'30px'}}>{props.children}</span>
+    <span style={{fontWeight: 'bold', color:'rgb(255,191,0)',}}>{props.children}</span>
     )
 
 export default HighlightIcon

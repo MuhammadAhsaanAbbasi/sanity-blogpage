@@ -10,6 +10,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import ThemeBtn from '../Themebtn/themeBtn';
+import Link from 'next/link';
 
 const Dropdown = () => {
     const [position, setPosition] = useState("")
@@ -23,7 +25,7 @@ const Dropdown = () => {
                             <DropdownMenuLabel>My Profile</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                                <DropdownMenuRadioItem value="blogs">Blogs</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="blogs"><Link href={"/"}>Blogs</Link></DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="contact">Contact</DropdownMenuRadioItem>
                             </DropdownMenuRadioGroup>

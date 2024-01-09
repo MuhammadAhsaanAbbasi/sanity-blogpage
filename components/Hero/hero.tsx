@@ -4,9 +4,9 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi"
 const Hero = () => {
     return (
         <>
-        <div className="flex flex-col md:flex-row lg:space-x-5 justify-around items-center py-5 mb-10">
+        <div className="flex flex-col md:flex-row lg:space-x-5 justify-around items-center py-5 mb-10 max-md:text-center">
             <div className="flex justify-around flex-col gap-y-2">
-            <h1 className="text-6xl font-bold text-black">Abbasi Daily Blog</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black dark:text-white">Abbasi Daily Blog</h1>
             <h3 className="text-xl font-medium text-slate-500">
                 Welcome to{" "}
                 <span>

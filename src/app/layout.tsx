@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import ThemeLayout from '../../components/Themebtn/themeLayout'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`dark:bg-[rgb(2,8,23)] ${inter.className} font-["poppins"] transition-all duration-500`}>
+        <ThemeLayout>
+        {children}
+        </ThemeLayout>
+        </body>
     </html>
   )
 }

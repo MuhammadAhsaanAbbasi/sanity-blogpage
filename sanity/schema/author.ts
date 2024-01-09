@@ -35,8 +35,8 @@ export const author = defineType(
                 title: 'Main Image'
             }),
             defineField({
-                name: 'body',
-                title: 'Body',
+                name: 'bio',
+                title: 'Bio',
                 type: blockContent.name,
             }),
         ],
