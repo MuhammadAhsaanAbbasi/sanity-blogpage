@@ -37,10 +37,10 @@ const Header = () => {
                     />
                     <h2 className={`text-3xl md:text-5xl font-bold text-blue-700 font-['ananda'] text-center`}>Muhammad Ahsaan Abbasi</h2>
                 </div>
-                <div className='flex items-center flex-col justify-center md:flex-row space-y-3 md:space-x-5 max-md:absolute top-10 right-10'>
-                <HiOutlineSearch className="text-black dark:text-white" size={28} />
-                    <Dropdown/>
+                <div className='flex items-center flex-col justify-center md:flex-row space-y-2 md:space-x-5 max-md:absolute top-10 right-10'>
                     <ThemeBtn/>
+                    <Dropdown/>
+                <HiOutlineSearch className="text-black dark:text-white" size={28} />
                 </div>
             </div>
         </>

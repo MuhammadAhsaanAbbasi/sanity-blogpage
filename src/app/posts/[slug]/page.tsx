@@ -70,7 +70,7 @@ async function Post({ params: { slug } }: Props) {
                                             height={40}
                                             width={40}
                                         />
-                                        <div className="w-[24rem]">
+                                        <div className="w-72">
                                             <h3 className="text-lg font-bold">{post.authors.name}</h3>
                                             <div className="line-clamp-3">
                                                 <PortableText
