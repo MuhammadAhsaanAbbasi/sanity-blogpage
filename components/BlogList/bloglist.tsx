@@ -50,10 +50,11 @@ export default function Bloglist() {
             <div className='grid grid-cols-1 md:grid-cols-3 px-10 gap-10 gap-y-16 pb-24 mt-2'>
                 {data.map((post: Post) => (
                     <Link key={post._id} href={`posts/${post.slug.current}`} className='flex flex-col group cursor-pointer'>
-                        <motion.div className='relative w-full h-full drop-shadow-xl group-hover:scale-105 transition-all duration-200 ease-out'
+                        <motion.div className='relative w-full h-full drop-shadow-xl group-hover:scale-110 transition-all duration-200 ease-out'
                             variants={Variants}
                             initial="hidden"
                             whileInView="visible"
+                            whileHover={{scale:1.02}}
                             transition={{
                                 delay: 0.2,
                                 duration: 1.5,
@@ -69,7 +70,7 @@ export default function Bloglist() {
                                     width={800}
                                 />
                             }
-                            <div className='absolute bottom-0 bg-black backdrop-blur-lg bg-opacity-20 rounded drop-shadow-lg p-5 flex justify-between items-center w-full text-white'>
+                            <motion.div className='absolute bottom-0 bg-black backdrop-blur-lg bg-opacity-20 rounded drop-shadow-lg p-5 flex justify-between items-center w-full text-white'>
                                 <motion.div
                                     variants={scale}
                                     initial="hidden"
@@ -114,7 +115,7 @@ export default function Bloglist() {
                                         </motion.div>
                                     ))}
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                         <motion.div className='mt-5 flex-1'
                             variants={fadeout}
