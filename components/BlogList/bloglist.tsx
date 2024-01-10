@@ -54,7 +54,7 @@ export default function Bloglist() {
                             variants={Variants}
                             initial="hidden"
                             whileInView="visible"
-                            whileHover={{scale:1.02}}
+                            whileHover={{ scale: 1.02 }}
                             transition={{
                                 delay: 0.2,
                                 duration: 1.5,
@@ -102,14 +102,14 @@ export default function Bloglist() {
                                 >
                                     {post.categories.map((category) => (
                                         <motion.div key={category._id}
-                                        variants={translate}
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        transition={{
-                                            delay: 0.1,
-                                            duration: 1.5,
-                                            ease: "easeOut"
-                                        }}
+                                            variants={translate}
+                                            initial="hidden"
+                                            whileInView="visible"
+                                            transition={{
+                                                delay: 0.1,
+                                                duration: 1.5,
+                                                ease: "easeOut"
+                                            }}
                                         >
                                             <h3 className='bg-[rgb(255,191,0)] text-black px-3 py-2 mx-2 my-3 rounded text-center'>{category.title}</h3>
                                         </motion.div>
