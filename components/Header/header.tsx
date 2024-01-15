@@ -29,11 +29,11 @@ const Header = () => {
                 </div>
                 <div className='px-6 py-3 flex gap-y-4 items-center flex-col justify-center'>
                     <Image
-                        src="/assests/profile.jpg"
-                        alt=''
-                        height={100}
-                        width={100}
-                        className='rounded-full border-2 border-black border-solid'
+                        src="/assests/maa_logo.jpeg"
+                        alt='my profile'
+                        height={500}
+                        width={500}
+                        className='rounded-full border-2 border-slate-400 border-solid h-[100px] w-[100px]'
                     />
                     <h2 className={`text-3xl md:text-5xl font-bold text-blue-700 font-['ananda'] text-center`}>Muhammad Ahsaan Abbasi</h2>
                 </div>
