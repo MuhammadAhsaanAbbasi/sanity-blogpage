@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+          <head>
+    <link rel="icon" href="./assests/favicon.ico" />
+    </head>
       <body className={`dark:bg-[rgb(2,8,23)] ${inter.className} font-["poppins"] transition-all duration-500`}>
         <ThemeLayout>
         {children}
