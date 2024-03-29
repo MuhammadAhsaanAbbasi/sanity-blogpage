@@ -41,8 +41,8 @@ export default function Blogs() {
         setCategoryFilter(categories)
     }
     return (
-        <div>
-            <h2>Choose Blogs</h2>
+        <div className='mx-2 my-2 bg-[#ecebe2] drop-shadow-md px-3 py-4'>
+            <h2 className='text-3xl font-bold'>Choose Blogs</h2>
             <div className='grid grid-cols-1 px-10 gap-10 gap-y-5 pb-10 mt-3'>
                 {
                     data.map((item, i) => (
@@ -57,7 +57,7 @@ export default function Blogs() {
                                     duration: 1.5,
                                     ease: "backInOut",
                                 }}
-                                className="flex gap-y-4 cursor-pointer items-center flex-col justify-center"
+                                className="flex gap-y-4 cursor-pointer items-center flex-col justify-center w-full"
                                 onClick={() => newRouter({slug: item.slug.current, categories: item.categoriess})}
                                 >
                                 <div key={i} className="flex-shrink-0 h-20 w-28 md:h-24 md:w-full">
