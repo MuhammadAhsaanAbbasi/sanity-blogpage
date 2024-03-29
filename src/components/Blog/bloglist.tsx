@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { client } from '../../sanity/lib/client';
+import { client } from '../../../sanity/lib/client';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Link from 'next/link';
 import { motion } from "framer-motion"
