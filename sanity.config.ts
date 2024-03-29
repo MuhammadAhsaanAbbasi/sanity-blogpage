@@ -11,7 +11,6 @@ import { presentationTool } from 'sanity/presentation'
 import {apiVersion, dataset, projectId} from './sanity/env'
 
 import { myTheme } from './theme'
-import StudioLogo from './components/Highlight/highlight'
 import { schema } from './sanity/schema/schema'
 
 export default defineConfig({

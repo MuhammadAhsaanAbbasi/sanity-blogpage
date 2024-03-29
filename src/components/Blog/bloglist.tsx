@@ -48,7 +48,7 @@ export default function Bloglist() {
         fetchData();
     }, [data, setData]);
     return (
-        <div>
+        <div id='blogs'>
             <hr className='w-[95%] mx-auto h-1 bg-[rgb(255,220,115)]' />
             <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24 mt-2'>
                 {data.map((post: Post) => (

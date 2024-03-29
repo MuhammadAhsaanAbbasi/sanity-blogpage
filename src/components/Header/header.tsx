@@ -40,7 +40,6 @@ const Header = () => {
                 <div className='flex items-center flex-col justify-center md:flex-row space-y-2 md:space-x-5 max-md:absolute top-10 right-10'>
                     <ThemeBtn/>
                     <Dropdown/>
-                <HiOutlineSearch className="text-black dark:text-white" size={28} />
                 </div>
             </div>
         </>

@@ -25,9 +25,9 @@ const Dropdown = () => {
                             <DropdownMenuLabel>My Profile</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                                <DropdownMenuRadioItem value="blogs"><Link href={"/"}>Blogs</Link></DropdownMenuRadioItem>
-                                <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-                                <DropdownMenuRadioItem value="contact">Contact</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="blogs"><Link href={"/"}>Home</Link></DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="bottom"><Link href={"#blogs"}>Blogs</Link></DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="contact"><Link href={"#contact"}>Contact</Link></DropdownMenuRadioItem>
                             </DropdownMenuRadioGroup>
                         </DropdownMenuContent>
                     </DropdownMenu>
