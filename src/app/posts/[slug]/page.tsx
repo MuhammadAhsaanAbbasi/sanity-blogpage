@@ -32,9 +32,9 @@ async function Post({ params: { slug } }: Props) {
         "authorImage": authors -> image.asset-> url,
         authors->,
         categories[]->
-      }`
-    const post: Post = await client.fetch(query, { slug },{ next: { revalidate: 30 } })
-    // console.log(post.authorImage)
+    }`
+    const post: Post = await client.fetch(query,{slug:slug}, { next: { revalidate: 30 } })
+    // console.log(post)
     return (
         <>
             <Layout>
