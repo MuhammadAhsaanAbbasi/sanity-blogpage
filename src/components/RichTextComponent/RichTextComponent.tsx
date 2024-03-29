@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { FaCircle } from "react-icons/fa";
+
 
 export const RichTextComponent = {
     marks: {
@@ -25,14 +27,14 @@ export const RichTextComponent = {
         h1: ({ children }: any) => <h1 className="text-6xl font-bold my-3">{children}</h1>,
         h2: ({ children }: any) => <h2 className="text-4xl font-bold my-5 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-pink-500 to-purple-500">{children}</h2>,
         h3: ({ children }: any) => <h3 className="text-3xl font-bold my-3">{children}</h3>,
-        h4: ({ children }: any) => <h4 className="text-2xl font-bold my-3">{children}</h4>, 
+        h4: ({ children }: any) => <h4 className="text-2xl font-semibold my-3">{children}</h4>, 
         h5: ({ children }: any) => <h5 className="text-xl font-bold my-3">{children}</h5>,
         h6: ({ children }: any) => <h6 className="text-lg font-bold my-3">{children}</h6>,
         blockquote: ({ children }: any) => <blockquote className="border-l-purple-500">{children}</blockquote>,
 
         // Ex. 2: rendering custom styles
         customHeading: ({ children }: any) => (
-            <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+            <h4 className="">{children}</h4>
         ),
     },
     list: {
@@ -52,5 +54,12 @@ export const RichTextComponent = {
 
         // Ex. 2: rendering custom list items
         checkmarks: ({ children }:any) => <li>✅ {children}</li>,
+
+        number: ({ children }: any) => <li className="px-10 text-lg"><div className="flex gap-x-4 items-center">
+            <FaCircle size={25} />
+            {children}
+            </div></li>,
+
+        // Ex. 3: rendering custom list items
     },
 }

@@ -1,9 +1,10 @@
 import { groq } from "next-sanity"
 import { client } from "../../../../sanity/lib/client"
-import Layout from "../../../../components/layout/layout"
+import Layout from "@/components/layout/layout"
 import Image from "next/image"
 import { PortableText } from '@portabletext/react'
-import { RichTextComponent } from "../../../../components/RichTextComponent/RichTextComponent"
+import { RichTextComponent } from "@/components/RichTextComponent/RichTextComponent"
+import Blogs from "@/components/Blog/blogs"
 
 type Props = {
     params: {
@@ -11,13 +12,13 @@ type Props = {
     }
 }
 
-export async function generateStaticParams(){
+export async function generateStaticParams() {
     const query = groq`*[_type=="post"]{
         slug
     }`
-    const slugs:Post[] = await client.fetch(query)
-    const slugRoutes = slugs.map((slug)=>slug.slug.current)
-    return slugRoutes.map((slug)=>({
+    const slugs: Post[] = await client.fetch(query)
+    const slugRoutes = slugs.map((slug) => slug.slug.current)
+    return slugRoutes.map((slug) => ({
         slug
     }))
 }
@@ -33,7 +34,7 @@ async function Post({ params: { slug } }: Props) {
         authors->,
         categories[]->
     }`
-    const post: Post = await client.fetch(query,{slug:slug}, { next: { revalidate: 30 } })
+    const post: Post = await client.fetch(query, { slug: slug }, { next: { revalidate: 30 } })
     // console.log(post)
     return (
         <>
@@ -95,8 +96,13 @@ async function Post({ params: { slug } }: Props) {
                             </section>
                         </div>
                     </section>
-                    <section className="text-lg text-zinc-600">
-                    <PortableText value={post.body} components={RichTextComponent}/>
+                    <section className="flex">
+                        <section className="text-lg text-zinc-600 basis-3/4">
+                            <PortableText value={post.body} components={RichTextComponent} />
+                        </section>
+                        <section className="basis-1/4">
+                        <Blogs/>
+                        </section>
                     </section>
                 </article>
             </Layout>

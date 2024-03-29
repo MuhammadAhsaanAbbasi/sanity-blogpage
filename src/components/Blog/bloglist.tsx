@@ -50,9 +50,9 @@ export default function Bloglist() {
             <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24 mt-2'>
                 {data.map((post: Post) => (
                     <Link key={post._id} href={`posts/${post.slug.current}`} className='flex flex-col group cursor-pointer'>
-                        <motion.div className='relative w-full h-[50vh] drop-shadow-xl group-hover:scale-110 transition-all duration-200 ease-out'
+                        <motion.div className='relative w-full h-[60vh] drop-shadow-xl group-hover:scale-110 transition-all duration-200 ease-out'
                             variants={Variants}
-                            initial="hidden"
+                            initial="hidden" 
                             whileInView="visible"
                             whileHover={{ scale: 1.02 }}
                             transition={{
@@ -80,8 +80,9 @@ export default function Bloglist() {
                                         duration: 2,
                                         ease: "easeOut"
                                     }}
+                                    className='w-[60vh]'
                                 >
-                                    <p>{post.title}</p>
+                                    <p className='text-sm'>{post.title}</p>
                                     <p>{new Date(post._createdAt).toLocaleDateString
                                         ("en-US", {
                                             day: 'numeric',
