@@ -5,6 +5,7 @@ import { client } from '../../../sanity/lib/client';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Link from 'next/link';
 import { motion } from "framer-motion"
+import { useFilter } from '../Context/Filter';
 
 // interface Props {
 //     posts:Post[]
@@ -12,6 +13,7 @@ import { motion } from "framer-motion"
 
 export const revalidate = 300
 export default function Bloglist() {
+    const {setCategoryFilter} = useFilter()
     const Variants = {
         hidden: { opacity: 0, y: 60, x: -60 },
         visible: { opacity: 1, y: 0, x: 0 },
@@ -36,7 +38,8 @@ export default function Bloglist() {
                 ...,
                 "imageSrc": mainImage.asset->url,
                 authors->,
-                categories[]->
+                categories[]->,
+                'categoriess': categories[]->_id,
             } | order(_createdAt desc)`);
 
             setData(result);
@@ -49,8 +52,10 @@ export default function Bloglist() {
             <hr className='w-[95%] mx-auto h-1 bg-[rgb(255,220,115)]' />
             <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24 mt-2'>
                 {data.map((post: Post) => (
-                    <Link key={post._id} href={`posts/${post.slug.current}`} className='flex flex-col group cursor-pointer'>
-                        <motion.div className='relative w-full h-[60vh] drop-shadow-xl group-hover:scale-110 transition-all duration-200 ease-out'
+                    <Link key={post._id} href={`posts/${post.slug.current}`} className='flex flex-col group cursor-pointer'
+                    onClick={()=>setCategoryFilter(post.categoriess)}
+                    >
+                        <motion.div className='relative w-full h-[55vh] drop-shadow-xl group-hover:scale-110 transition-all duration-200 ease-out'
                             variants={Variants}
                             initial="hidden" 
                             whileInView="visible"

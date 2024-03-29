@@ -5,6 +5,8 @@ import { client } from '../../../sanity/lib/client';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Link from 'next/link';
 import { motion } from "framer-motion"
+import { useFilter } from '../Context/Filter';
+import { useRouter } from 'next/navigation';
 
 // interface Props {
 //     posts:Post[]
@@ -12,31 +14,19 @@ import { motion } from "framer-motion"
 
 export const revalidate = 300
 export default function Blogs() {
-    const Variants = {
-        hidden: { opacity: 0, y: 60, x: -60 },
-        visible: { opacity: 1, y: 0, x: 0 },
-    };
-    const fadeout = {
-        hidden: { opacity: 0, y: 60, x: 30 },
-        visible: { opacity: 1, y: 0, x: 0 },
-    };
-    const translate = {
-        hidden: { opacity: 0, x: -40 },
-        visible: { opacity: 1, x: 0 },
-    };
-    const scale = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: { opacity: 1, scale: 1 },
-    };
+    const {categoryFilter, setCategoryFilter} = useFilter()
+    console.log(categoryFilter)
+    const categories = categoryFilter.map((category) => `"${category}"`).join(",").toString()
+    const router = useRouter()
     const [data, setData] = useState<Post[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await client.fetch(`*[_type == "post" && categories[0]._ref in ["5460d448-1e2d-456f-b797-52ab178cfafe", "3d5d0bf6-2333-4e56-a54f-ca8f5ffa534b"]]{
+            const result = await client.fetch(`*[_type == "post" && categories[0]._ref in [${categories}]]{
                 ...,
                 authors->,
                 categories[]->,
-                "Slug": slug.current,
+                'categoriess': categories[]->_id,
                 "imageSrc": mainImage.asset->url,
             }`);
 
@@ -44,7 +34,12 @@ export default function Blogs() {
         };
 
         fetchData();
-    }, [data, setData]);
+    }, [data, setData, categories]);
+
+    const newRouter = ({slug, categories}: {slug: string, categories: string[]}) => {
+        router.push(`/posts/${slug}`)
+        setCategoryFilter(categories)
+    }
     return (
         <div>
             <h2>Choose Blogs</h2>
@@ -62,7 +57,9 @@ export default function Blogs() {
                                     duration: 1.5,
                                     ease: "backInOut",
                                 }}
-                                className="flex gap-y-4 cursor-pointer items-center flex-col justify-center">
+                                className="flex gap-y-4 cursor-pointer items-center flex-col justify-center"
+                                onClick={() => newRouter({slug: item.slug.current, categories: item.categoriess})}
+                                >
                                 <div key={i} className="flex-shrink-0 h-20 w-28 md:h-24 md:w-full">
                                     <Image src={item.imageSrc} alt="metaverse" height={150} width={150} className="h-full w-full object-cover rounded-md" />
                                 </div>

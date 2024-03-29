@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import ThemeLayout from '../../components/Themebtn/themeLayout'
+import ThemeLayout from '@/components/Themebtn/themeLayout'
+import { FilterProvider } from '@/components/Context/Filter'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -20,9 +21,11 @@ export default function RootLayout({
     <link rel="icon" href="./assests/favicon.ico" />
     </head>
       <body className={`bg-[#F2F0DF] dark:bg-[rgb(2,8,23)] ${inter.className} font-["poppins"] transition-all duration-500`}>
+        <FilterProvider>
         <ThemeLayout>
-        {children}
+          {children}
         </ThemeLayout>
+          </FilterProvider>
         </body>
     </html>
   )

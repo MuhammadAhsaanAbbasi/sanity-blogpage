@@ -11,6 +11,7 @@ interface Post extends Base{
     authors:Author;
     body:Block[];
     categories:Category[];
+    categoriess: string[];
     imageSrc:string;
     authorImage:string;
     slug:Slug; 
